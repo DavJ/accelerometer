@@ -1,2 +1,1 @@
-# accelerometer
 accelerometer
