@@ -2,32 +2,46 @@
 <items version="2" >
 
     <item
-        jar="/home/david/AndroidStudioProjects/acelerometer/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/classes.jar"
+        jar="/home/david/.gradle/caches/modules-2/files-2.1/pl.edu.icm/JLargeArrays/1.2/85c8cd79cc2865ef37cd70f96cd82246ee642d58/JLargeArrays-1.2.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="d84409890828e07d344a3b9b1da545dba9897b51">
-        <dex dex="/home/david/AndroidStudioProjects/acelerometer/app/build/intermediates/pre-dexed/debug/classes-055372ef38b961847048b5792c5cdace519173b4.jar" />
+        sha1="85c8cd79cc2865ef37cd70f96cd82246ee642d58">
+        <dex dex="/home/david/AndroidStudioProjects/accelerometer/app/build/intermediates/pre-dexed/debug/JLargeArrays-1.2-df3a7fc82f53e45bf8ec7cd07ab9921450a800b2.jar" />
     </item>
     <item
-        jar="/home/david/AndroidStudioProjects/acelerometer/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/classes.jar"
+        jar="/home/david/AndroidStudioProjects/accelerometer/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
-        <dex dex="/home/david/AndroidStudioProjects/acelerometer/app/build/intermediates/pre-dexed/debug/classes-526a3ddbda68f92c344f9288493e3dae9e704c61.jar" />
-    </item>
-    <item
-        jar="/home/david/AndroidStudioProjects/acelerometer/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/libs/internal_impl-22.0.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
-        <dex dex="/home/david/AndroidStudioProjects/acelerometer/app/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-0661053ab939868c5b29d137f2d261cfc256174f.jar" />
+        <dex dex="/home/david/AndroidStudioProjects/accelerometer/app/build/intermediates/pre-dexed/debug/classes-8343b57cb5b31e77c38850d163c2743f4fcd2d61.jar" />
     </item>
     <item
         jar="/home/david/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/22.0.0/support-annotations-22.0.0.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
-        <dex dex="/home/david/AndroidStudioProjects/acelerometer/app/build/intermediates/pre-dexed/debug/support-annotations-22.0.0-2831dd2c76ab6c1b910177956e06c6c223b669e1.jar" />
+        <dex dex="/home/david/AndroidStudioProjects/accelerometer/app/build/intermediates/pre-dexed/debug/support-annotations-22.0.0-2831dd2c76ab6c1b910177956e06c6c223b669e1.jar" />
+    </item>
+    <item
+        jar="/home/david/AndroidStudioProjects/accelerometer/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d84409890828e07d344a3b9b1da545dba9897b51">
+        <dex dex="/home/david/AndroidStudioProjects/accelerometer/app/build/intermediates/pre-dexed/debug/classes-3d25b052cf0a6cc3f780f346083397fe789498ec.jar" />
+    </item>
+    <item
+        jar="/home/david/.gradle/caches/modules-2/files-2.1/com.github.wendykierp/JTransforms/3.0/79477aec6929cd64cd863d6ac59c2445d00239a3/JTransforms-3.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="79477aec6929cd64cd863d6ac59c2445d00239a3">
+        <dex dex="/home/david/AndroidStudioProjects/accelerometer/app/build/intermediates/pre-dexed/debug/JTransforms-3.0-f0d122dca9fcea81877d30c94e759b6be7e9378b.jar" />
+    </item>
+    <item
+        jar="/home/david/AndroidStudioProjects/accelerometer/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/libs/internal_impl-22.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
+        <dex dex="/home/david/AndroidStudioProjects/accelerometer/app/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-323d1f68d6b7a552ce4fb01cc4adab7b7e82a56e.jar" />
     </item>
 
 </items>
