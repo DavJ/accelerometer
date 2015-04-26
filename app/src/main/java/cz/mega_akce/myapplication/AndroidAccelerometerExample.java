@@ -17,7 +17,6 @@ import org.jtransforms.fft.DoubleFFT_1D;
 //import android.os.Bundle;
 //;
 
-
 public class AndroidAccelerometerExample extends Activity implements SensorEventListener {
 
     private float lastX, lastY, lastZ;

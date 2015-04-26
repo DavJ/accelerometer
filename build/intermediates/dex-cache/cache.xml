@@ -37,6 +37,13 @@
         <dex dex="/home/david/AndroidStudioProjects/accelerometer/app/build/intermediates/pre-dexed/debug/JTransforms-3.0-f0d122dca9fcea81877d30c94e759b6be7e9378b.jar" />
     </item>
     <item
+        jar="/home/david/.gradle/caches/modules-2/files-2.1/com.androidplot/androidplot-core/0.6.1/3db0daea52375b26bfa61c59b8df93950bdefbbc/androidplot-core-0.6.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="3db0daea52375b26bfa61c59b8df93950bdefbbc">
+        <dex dex="/home/david/AndroidStudioProjects/accelerometer/app/build/intermediates/pre-dexed/debug/androidplot-core-0.6.1-7f2372771c3a73e5a2b5379edbcb987ccf5412f3.jar" />
+    </item>
+    <item
         jar="/home/david/AndroidStudioProjects/accelerometer/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/libs/internal_impl-22.0.0.jar"
         jumboMode="false"
         revision="21.1.2"
