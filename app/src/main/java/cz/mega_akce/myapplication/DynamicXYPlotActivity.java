@@ -25,6 +25,8 @@ import java.text.DecimalFormat;
 import java.util.Observable;
 import java.util.Observer;
 
+//double[] a_spectrum;
+
 public class DynamicXYPlotActivity extends Activity implements SensorEventListener{
 
     // redraws a plot whenever an update is received:
@@ -52,7 +54,7 @@ public class DynamicXYPlotActivity extends Activity implements SensorEventListen
     private long cpoint,cpoint1;
     private int cir_buff_start, cir_buff_end;
     private DoubleFFT_1D fft;
-    private double[] a_spectrum;
+    public double[] a_spectrum,a_values;
 
     private SensorManager sensorManager;
     private Sensor accelerometer;
@@ -120,7 +122,8 @@ public class DynamicXYPlotActivity extends Activity implements SensorEventListen
             // success! we have an accelerometer
 
             accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-            sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+            sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_FASTEST);
+
             //vibrateThreshold = accelerometer.getMaximumRange() / 2;
         } else {
             // fai! we dont have an accelerometer!
@@ -133,6 +136,7 @@ public class DynamicXYPlotActivity extends Activity implements SensorEventListen
         Y=new float[1024];
         Z=new float[1024];
         a_spectrum = new double[1024];
+        a_values = new double[1024];
         TSample=1;
         startT= System.currentTimeMillis();
         cpoint1=0;
@@ -171,6 +175,7 @@ public class DynamicXYPlotActivity extends Activity implements SensorEventListen
     public void onSensorChanged(SensorEvent event) {
 
         // clean current values
+        boolean overflowed = false;
 
         lastX=event.values[0];
         lastY=event.values[1];
@@ -180,29 +185,42 @@ public class DynamicXYPlotActivity extends Activity implements SensorEventListen
         cpoint1=cpoint;
         cpoint= (lastT-startT)/TSample;
 
+
         for (int i= 0; i< (cpoint-cpoint1); i++) {
+            if( ((int) ((cpoint1 + i) / 1024))>0) { overflowed=true;}
             cir_buff_end= (int) ((cpoint1 + i) % 1024);
             X[cir_buff_end]= lastX;
             Y[cir_buff_end]= lastY;
             Z[cir_buff_end]= lastZ;
-        }
+        };
 
-        if (cir_buff_start>cir_buff_end){
+        //prepare data for new fft & display
+        if ( overflowed ){
             //buffer overflow do fft
-            cir_buff_start=cir_buff_end;
+            //cir_buff_start=
+            //cir_buff_end=0;
 
             double[] a;
             a=new double[1024];
 
             for(int i=0; i<1024;i++) {
+                //a[i]=Math.random()*50;
                 a[i]=Math.sqrt(X[i]*X[i]+Y[i]*Y[i]+Z[i]*Z[i]);
             }
+
+
+            for(int i=0; i<1024;i++) {
+                a_values[i]=a[i];
+
+            }
+
             //DoubleFFT_1D
-            fft.realForward(a);
+            fft.realForward(a); 
 
 
             for(int i=0; i<1024;i++) {
                 a_spectrum[i]=a[i];
+
             }
 
         }
@@ -227,7 +245,7 @@ public class DynamicXYPlotActivity extends Activity implements SensorEventListen
         private static final int AMP_STEP = 1;
         public static final int SINE1 = 0;
         public static final int SINE2 = 1;
-        private static final int SAMPLE_SIZE = 30;
+        private static final int SAMPLE_SIZE = 1024;
         private int phase = 0;
         private int sinAmp = 1;
         private MyObservable notifier;
@@ -283,13 +301,15 @@ public class DynamicXYPlotActivity extends Activity implements SensorEventListen
             if (index >= SAMPLE_SIZE) {
                 throw new IllegalArgumentException();
             }
-            double angle = (index + (phase))/FREQUENCY;
-            double amp = sinAmp * Math.sin(angle);
+
             switch (series) {
                 case SINE1:
-                    return amp;
+                    return DynamicXYPlotActivity.this.a_spectrum[index];
                 case SINE2:
-                    return -amp;
+                    return DynamicXYPlotActivity.this.a_values[index];
+
+                    //return 0 + (int)(Math.random()*50);
+
                 default:
                     throw new IllegalArgumentException();
             }
@@ -333,7 +353,7 @@ public class DynamicXYPlotActivity extends Activity implements SensorEventListen
 
         @Override
         public Number getY(int index) {
-            return datasource.getY(seriesIndex, index);
+                return datasource.getY(seriesIndex, index);
         }
     }
 }
