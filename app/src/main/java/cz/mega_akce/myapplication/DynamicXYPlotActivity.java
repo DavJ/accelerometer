@@ -76,19 +76,19 @@ public class DynamicXYPlotActivity extends Activity implements SensorEventListen
 
         // getInstance and position datasets:
         data = new SampleDynamicXYDatasource();
-        SampleDynamicSeries sine1Series = new SampleDynamicSeries(data, 0, "Sine 1");
-        SampleDynamicSeries sine2Series = new SampleDynamicSeries(data, 1, "Sine 2");
+        SampleDynamicSeries sine1Series = new SampleDynamicSeries(data, 0, "Spectrum");
+        SampleDynamicSeries sine2Series = new SampleDynamicSeries(data, 1, "Signal");
 
         LineAndPointFormatter formatter1 = new LineAndPointFormatter(
                 Color.rgb(0, 0, 0), null, null, null);
         formatter1.getLinePaint().setStrokeJoin(Paint.Join.ROUND);
-        formatter1.getLinePaint().setStrokeWidth(10);
+        formatter1.getLinePaint().setStrokeWidth(2);
         dynamicPlot.addSeries(sine1Series,
                 formatter1);
 
         LineAndPointFormatter formatter2 =
                 new LineAndPointFormatter(Color.rgb(0, 0, 200), null, null, null);
-        formatter2.getLinePaint().setStrokeWidth(10);
+        formatter2.getLinePaint().setStrokeWidth(2);
         formatter2.getLinePaint().setStrokeJoin(Paint.Join.ROUND);
 
         //formatter2.getFillPaint().setAlpha(220);
@@ -99,10 +99,10 @@ public class DynamicXYPlotActivity extends Activity implements SensorEventListen
 
         // thin out domain tick labels so they dont overlap each other:
         dynamicPlot.setDomainStepMode(XYStepMode.INCREMENT_BY_VAL);
-        dynamicPlot.setDomainStepValue(5);
+        dynamicPlot.setDomainStepValue(100);
 
         dynamicPlot.setRangeStepMode(XYStepMode.INCREMENT_BY_VAL);
-        dynamicPlot.setRangeStepValue(10);
+        dynamicPlot.setRangeStepValue(25);
 
         dynamicPlot.setRangeValueFormat(new DecimalFormat("###.#"));
 
@@ -245,7 +245,8 @@ public class DynamicXYPlotActivity extends Activity implements SensorEventListen
         private static final int AMP_STEP = 1;
         public static final int SINE1 = 0;
         public static final int SINE2 = 1;
-        private static final int SAMPLE_SIZE = 1024;
+        //there are 1024 samples but for nicely spaced annotations we show only 1000
+        private static final int SAMPLE_SIZE = 1000;
         private int phase = 0;
         private int sinAmp = 1;
         private MyObservable notifier;
@@ -267,7 +268,7 @@ public class DynamicXYPlotActivity extends Activity implements SensorEventListen
                 while (keepRunning) {
 
                     Thread.sleep(10); // decrease or remove to speed up the refresh rate.
-                    phase++;
+                    /*phase++;
                     if (sinAmp >= MAX_AMP_SEED) {
                         isRising = false;
                     } else if (sinAmp <= MIN_AMP_SEED) {
@@ -278,7 +279,7 @@ public class DynamicXYPlotActivity extends Activity implements SensorEventListen
                         sinAmp += AMP_STEP;
                     } else {
                         sinAmp -= AMP_STEP;
-                    }
+                    }*/
                     notifier.notifyObservers();
                 }
             } catch (InterruptedException e) {

@@ -1,0 +1,625 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 81788928 bytes for committing reserved memory.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_linux.cpp:2673), pid=17223, tid=140644205979392
+#
+# JRE version: OpenJDK Runtime Environment (8.0_40-b09) (build 1.8.0_40-internal-b09)
+# Java VM: OpenJDK 64-Bit Server VM (25.40-b13 mixed mode linux-amd64 compressed oops)
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007fea6013e800):  VMThread [stack: 0x00007fea47dfe000,0x00007fea47eff000] [id=17236]
+
+Stack: [0x00007fea47dfe000,0x00007fea47eff000],  sp=0x00007fea47efd490,  free space=1021k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0xa8275d]
+V  [libjvm.so+0x4e146c]
+V  [libjvm.so+0x8d1f50]
+V  [libjvm.so+0x8cc7be]
+V  [libjvm.so+0x94571b]
+V  [libjvm.so+0x946a83]
+V  [libjvm.so+0x9437ae]
+V  [libjvm.so+0x943a9c]
+V  [libjvm.so+0x8f6b53]
+V  [libjvm.so+0xa84212]
+V  [libjvm.so+0xa88d57]
+V  [libjvm.so+0xa87087]
+V  [libjvm.so+0xa878b7]
+V  [libjvm.so+0xa87df1]
+V  [libjvm.so+0x8cf2b2]
+
+VM_Operation (0x00007fea66cb0140): ParallelGCFailedAllocation, mode: safepoint, requested by thread 0x00007fea6000a000
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x00007fea6027b000 JavaThread "Service Thread" daemon [_thread_blocked, id=17243, stack(0x00007fea47011000,0x00007fea47112000)]
+  0x00007fea60179800 JavaThread "C1 CompilerThread2" daemon [_thread_blocked, id=17242, stack(0x00007fea47112000,0x00007fea47213000)]
+  0x00007fea60177800 JavaThread "C2 CompilerThread1" daemon [_thread_in_native, id=17241, stack(0x00007fea47213000,0x00007fea47314000)]
+  0x00007fea60175000 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=17240, stack(0x00007fea47314000,0x00007fea47415000)]
+  0x00007fea60172800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=17239, stack(0x00007fea47415000,0x00007fea47516000)]
+  0x00007fea60146000 JavaThread "Finalizer" daemon [_thread_blocked, id=17238, stack(0x00007fea47bfc000,0x00007fea47cfd000)]
+  0x00007fea60143800 JavaThread "Reference Handler" daemon [_thread_blocked, id=17237, stack(0x00007fea47cfd000,0x00007fea47dfe000)]
+  0x00007fea6000a000 JavaThread "main" [_thread_blocked, id=17231, stack(0x00007fea66bb1000,0x00007fea66cb2000)]
+
+Other Threads:
+=>0x00007fea6013e800 VMThread [stack: 0x00007fea47dfe000,0x00007fea47eff000] [id=17236]
+  0x00007fea6027d800 WatcherThread [stack: 0x00007fea46f10000,0x00007fea47011000] [id=17244]
+
+VM state:at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00007fea60006480] Threads_lock - owner thread: 0x00007fea6013e800
+[0x00007fea60006980] Heap_lock - owner thread: 0x00007fea6000a000
+
+Heap:
+ PSYoungGen      total 64000K, used 2532K [0x00000000eab00000, 0x00000000eec00000, 0x0000000100000000)
+  eden space 61440K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000ee700000)
+  from space 2560K, 98% used [0x00000000ee700000,0x00000000ee979388,0x00000000ee980000)
+  to   space 2560K, 0% used [0x00000000ee980000,0x00000000ee980000,0x00000000eec00000)
+ ParOldGen       total 40960K, used 25893K [0x00000000c0000000, 0x00000000c2800000, 0x00000000eab00000)
+  object space 40960K, 63% used [0x00000000c0000000,0x00000000c1949470,0x00000000c2800000)
+ Metaspace       used 7062K, capacity 7350K, committed 7424K, reserved 1056768K
+  class space    used 707K, capacity 767K, committed 768K, reserved 1048576K
+
+Card table byte_map: [0x00007fea4fffa000,0x00007fea501fb000] byte_map_base: 0x00007fea4f9fa000
+
+Marking Bits: (ParMarkBitMap*) 0x00007fea65e8dcc0
+ Begin Bits: [0x00007fea4daa0000, 0x00007fea4eaa0000)
+ End Bits:   [0x00007fea4eaa0000, 0x00007fea4faa0000)
+
+Polling page: 0x00007fea66cd6000
+
+CodeCache: size=245760Kb used=5397Kb max_used=5399Kb free=240362Kb
+ bounds [0x00007fea505bb000, 0x00007fea50b0b000, 0x00007fea5f5bb000]
+ total_blobs=2047 nmethods=1744 adapters=218
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 4.203 Thread 0x00007fea60179800 1822       2       com.android.dx.io.instructions.InstructionCodec$31::encode (39 bytes)
+Event: 4.206 Thread 0x00007fea60179800 nmethod 1822 0x00007fea50b06110 code [0x00007fea50b062a0, 0x00007fea50b06598]
+Event: 4.206 Thread 0x00007fea60179800 1824       2       com.android.dx.io.instructions.InstructionCodec::access$1300 (5 bytes)
+Event: 4.207 Thread 0x00007fea60179800 nmethod 1824 0x00007fea50af1490 code [0x00007fea50af15e0, 0x00007fea50af1710]
+Event: 4.207 Thread 0x00007fea60179800 1825       2       com.android.dx.io.instructions.InstructionCodec::unit0 (4 bytes)
+Event: 4.207 Thread 0x00007fea60179800 nmethod 1825 0x00007fea50b01b10 code [0x00007fea50b01c60, 0x00007fea50b01d90]
+Event: 4.207 Thread 0x00007fea60179800 1826       2       com.android.dx.io.instructions.InstructionCodec::access$1400 (5 bytes)
+Event: 4.207 Thread 0x00007fea60179800 nmethod 1826 0x00007fea50b05e10 code [0x00007fea50b05f60, 0x00007fea50b06090]
+Event: 4.207 Thread 0x00007fea60179800 1827       2       com.android.dx.io.instructions.InstructionCodec::unit1 (7 bytes)
+Event: 4.207 Thread 0x00007fea60179800 nmethod 1827 0x00007fea50b05b10 code [0x00007fea50b05c60, 0x00007fea50b05d90]
+
+GC Heap History (9 events):
+Event: 0.786 GC heap before
+{Heap before GC invocations=1 (full 0):
+ PSYoungGen      total 17920K, used 15211K [0x00000000eab00000, 0x00000000ebf00000, 0x0000000100000000)
+  eden space 15360K, 99% used [0x00000000eab00000,0x00000000eb9dafe0,0x00000000eba00000)
+  from space 2560K, 0% used [0x00000000ebc80000,0x00000000ebc80000,0x00000000ebf00000)
+  to   space 2560K, 0% used [0x00000000eba00000,0x00000000eba00000,0x00000000ebc80000)
+ ParOldGen       total 40960K, used 0K [0x00000000c0000000, 0x00000000c2800000, 0x00000000eab00000)
+  object space 40960K, 0% used [0x00000000c0000000,0x00000000c0000000,0x00000000c2800000)
+ Metaspace       used 5436K, capacity 6350K, committed 6528K, reserved 1056768K
+  class space    used 556K, capacity 599K, committed 640K, reserved 1048576K
+Event: 0.798 GC heap after
+Heap after GC invocations=1 (full 0):
+ PSYoungGen      total 17920K, used 2544K [0x00000000eab00000, 0x00000000ece00000, 0x0000000100000000)
+  eden space 15360K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000eba00000)
+  from space 2560K, 99% used [0x00000000eba00000,0x00000000ebc7c380,0x00000000ebc80000)
+  to   space 2560K, 0% used [0x00000000ecb80000,0x00000000ecb80000,0x00000000ece00000)
+ ParOldGen       total 40960K, used 2812K [0x00000000c0000000, 0x00000000c2800000, 0x00000000eab00000)
+  object space 40960K, 6% used [0x00000000c0000000,0x00000000c02bf1b0,0x00000000c2800000)
+ Metaspace       used 5436K, capacity 6350K, committed 6528K, reserved 1056768K
+  class space    used 556K, capacity 599K, committed 640K, reserved 1048576K
+}
+Event: 1.394 GC heap before
+{Heap before GC invocations=2 (full 0):
+ PSYoungGen      total 17920K, used 17904K [0x00000000eab00000, 0x00000000ece00000, 0x0000000100000000)
+  eden space 15360K, 100% used [0x00000000eab00000,0x00000000eba00000,0x00000000eba00000)
+  from space 2560K, 99% used [0x00000000eba00000,0x00000000ebc7c380,0x00000000ebc80000)
+  to   space 2560K, 0% used [0x00000000ecb80000,0x00000000ecb80000,0x00000000ece00000)
+ ParOldGen       total 40960K, used 2812K [0x00000000c0000000, 0x00000000c2800000, 0x00000000eab00000)
+  object space 40960K, 6% used [0x00000000c0000000,0x00000000c02bf1b0,0x00000000c2800000)
+ Metaspace       used 6936K, capacity 7286K, committed 7424K, reserved 1056768K
+  class space    used 706K, capacity 767K, committed 768K, reserved 1048576K
+Event: 1.410 GC heap after
+Heap after GC invocations=2 (full 0):
+ PSYoungGen      total 33280K, used 2548K [0x00000000eab00000, 0x00000000ece00000, 0x0000000100000000)
+  eden space 30720K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000ec900000)
+  from space 2560K, 99% used [0x00000000ecb80000,0x00000000ecdfd028,0x00000000ece00000)
+  to   space 2560K, 0% used [0x00000000ec900000,0x00000000ec900000,0x00000000ecb80000)
+ ParOldGen       total 40960K, used 6769K [0x00000000c0000000, 0x00000000c2800000, 0x00000000eab00000)
+  object space 40960K, 16% used [0x00000000c0000000,0x00000000c069c4e0,0x00000000c2800000)
+ Metaspace       used 6936K, capacity 7286K, committed 7424K, reserved 1056768K
+  class space    used 706K, capacity 767K, committed 768K, reserved 1048576K
+}
+Event: 2.071 GC heap before
+{Heap before GC invocations=3 (full 0):
+ PSYoungGen      total 33280K, used 33268K [0x00000000eab00000, 0x00000000ece00000, 0x0000000100000000)
+  eden space 30720K, 100% used [0x00000000eab00000,0x00000000ec900000,0x00000000ec900000)
+  from space 2560K, 99% used [0x00000000ecb80000,0x00000000ecdfd028,0x00000000ece00000)
+  to   space 2560K, 0% used [0x00000000ec900000,0x00000000ec900000,0x00000000ecb80000)
+ ParOldGen       total 40960K, used 6769K [0x00000000c0000000, 0x00000000c2800000, 0x00000000eab00000)
+  object space 40960K, 16% used [0x00000000c0000000,0x00000000c069c4e0,0x00000000c2800000)
+ Metaspace       used 7030K, capacity 7350K, committed 7424K, reserved 1056768K
+  class space    used 706K, capacity 767K, committed 768K, reserved 1048576K
+Event: 2.097 GC heap after
+Heap after GC invocations=3 (full 0):
+ PSYoungGen      total 33280K, used 2530K [0x00000000eab00000, 0x00000000eec00000, 0x0000000100000000)
+  eden space 30720K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000ec900000)
+  from space 2560K, 98% used [0x00000000ec900000,0x00000000ecb789c8,0x00000000ecb80000)
+  to   space 2560K, 0% used [0x00000000ee980000,0x00000000ee980000,0x00000000eec00000)
+ ParOldGen       total 40960K, used 9828K [0x00000000c0000000, 0x00000000c2800000, 0x00000000eab00000)
+  object space 40960K, 23% used [0x00000000c0000000,0x00000000c09991f0,0x00000000c2800000)
+ Metaspace       used 7030K, capacity 7350K, committed 7424K, reserved 1056768K
+  class space    used 706K, capacity 767K, committed 768K, reserved 1048576K
+}
+Event: 2.630 GC heap before
+{Heap before GC invocations=4 (full 0):
+ PSYoungGen      total 33280K, used 33250K [0x00000000eab00000, 0x00000000eec00000, 0x0000000100000000)
+  eden space 30720K, 100% used [0x00000000eab00000,0x00000000ec900000,0x00000000ec900000)
+  from space 2560K, 98% used [0x00000000ec900000,0x00000000ecb789c8,0x00000000ecb80000)
+  to   space 2560K, 0% used [0x00000000ee980000,0x00000000ee980000,0x00000000eec00000)
+ ParOldGen       total 40960K, used 9828K [0x00000000c0000000, 0x00000000c2800000, 0x00000000eab00000)
+  object space 40960K, 23% used [0x00000000c0000000,0x00000000c09991f0,0x00000000c2800000)
+ Metaspace       used 7044K, capacity 7350K, committed 7424K, reserved 1056768K
+  class space    used 706K, capacity 767K, committed 768K, reserved 1048576K
+Event: 2.706 GC heap after
+Heap after GC invocations=4 (full 0):
+ PSYoungGen      total 64000K, used 2558K [0x00000000eab00000, 0x00000000eec00000, 0x0000000100000000)
+  eden space 61440K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000ee700000)
+  from space 2560K, 99% used [0x00000000ee980000,0x00000000eebff900,0x00000000eec00000)
+  to   space 2560K, 0% used [0x00000000ee700000,0x00000000ee700000,0x00000000ee980000)
+ ParOldGen       total 40960K, used 20026K [0x00000000c0000000, 0x00000000c2800000, 0x00000000eab00000)
+  object space 40960K, 48% used [0x00000000c0000000,0x00000000c138e838,0x00000000c2800000)
+ Metaspace       used 7044K, capacity 7350K, committed 7424K, reserved 1056768K
+  class space    used 706K, capacity 767K, committed 768K, reserved 1048576K
+}
+Event: 7.102 GC heap before
+{Heap before GC invocations=5 (full 0):
+ PSYoungGen      total 64000K, used 63998K [0x00000000eab00000, 0x00000000eec00000, 0x0000000100000000)
+  eden space 61440K, 100% used [0x00000000eab00000,0x00000000ee700000,0x00000000ee700000)
+  from space 2560K, 99% used [0x00000000ee980000,0x00000000eebff900,0x00000000eec00000)
+  to   space 2560K, 0% used [0x00000000ee700000,0x00000000ee700000,0x00000000ee980000)
+ ParOldGen       total 40960K, used 20026K [0x00000000c0000000, 0x00000000c2800000, 0x00000000eab00000)
+  object space 40960K, 48% used [0x00000000c0000000,0x00000000c138e838,0x00000000c2800000)
+ Metaspace       used 7062K, capacity 7350K, committed 7424K, reserved 1056768K
+  class space    used 707K, capacity 767K, committed 768K, reserved 1048576K
+
+Deoptimization events (10 events):
+Event: 1.057 Thread 0x00007fea6000a000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007fea5074f994 method=java.lang.String.replace(CC)Ljava/lang/String; @ 2
+Event: 1.060 Thread 0x00007fea6000a000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007fea508d1094 method=java.util.HashMap.putVal(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/lang/Object; @ 56
+Event: 1.060 Thread 0x00007fea6000a000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007fea508d1094 method=java.util.HashMap.putVal(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/lang/Object; @ 56
+Event: 1.060 Thread 0x00007fea6000a000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007fea508d1094 method=java.util.HashMap.putVal(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/lang/Object; @ 56
+Event: 1.060 Thread 0x00007fea6000a000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007fea508d1134 method=java.util.HashMap.putVal(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/lang/Object; @ 152
+Event: 1.060 Thread 0x00007fea6000a000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007fea508d1134 method=java.util.HashMap.putVal(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/lang/Object; @ 152
+Event: 1.063 Thread 0x00007fea6000a000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x00007fea508a7474 method=java.util.HashMap.getNode(ILjava/lang/Object;)Ljava/util/HashMap$Node; @ 126
+Event: 1.178 Thread 0x00007fea6000a000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007fea50948e90 method=java.util.HashMap.putVal(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/lang/Object; @ 162
+Event: 1.209 Thread 0x00007fea6000a000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007fea508e6bb8 method=java.util.HashMap.getNode(ILjava/lang/Object;)Ljava/util/HashMap$Node; @ 84
+Event: 1.303 Thread 0x00007fea6000a000 Uncommon trap: reason=predicate action=maybe_recompile pc=0x00007fea509cd29c method=com.android.dex.Leb128.readUnsignedLeb128(Lcom/android/dex/util/ByteInput;)I @ 41
+
+Internal exceptions (10 events):
+Event: 1.232 Thread 0x00007fea6000a000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000eb75c890) thrown at [/build/buildd/openjdk-8-8u40~b09/src/hotspot/src/share/vm/prims/jvm.cpp, line 1288]
+Event: 1.232 Thread 0x00007fea6000a000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000eb760b78) thrown at [/build/buildd/openjdk-8-8u40~b09/src/hotspot/src/share/vm/prims/jvm.cpp, line 1288]
+Event: 1.233 Thread 0x00007fea6000a000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000eb764fb0) thrown at [/build/buildd/openjdk-8-8u40~b09/src/hotspot/src/share/vm/prims/jvm.cpp, line 1288]
+Event: 1.235 Thread 0x00007fea6000a000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000eb76b810) thrown at [/build/buildd/openjdk-8-8u40~b09/src/hotspot/src/share/vm/prims/jvm.cpp, line 1288]
+Event: 1.235 Thread 0x00007fea6000a000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000eb76fb00) thrown at [/build/buildd/openjdk-8-8u40~b09/src/hotspot/src/share/vm/prims/jvm.cpp, line 1288]
+Event: 1.236 Thread 0x00007fea6000a000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000eb774000) thrown at [/build/buildd/openjdk-8-8u40~b09/src/hotspot/src/share/vm/prims/jvm.cpp, line 1288]
+Event: 1.236 Thread 0x00007fea6000a000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000eb777f90) thrown at [/build/buildd/openjdk-8-8u40~b09/src/hotspot/src/share/vm/prims/jvm.cpp, line 1288]
+Event: 1.240 Thread 0x00007fea6000a000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000eb7bfd50) thrown at [/build/buildd/openjdk-8-8u40~b09/src/hotspot/src/share/vm/prims/jvm.cpp, line 1288]
+Event: 1.241 Thread 0x00007fea6000a000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000eb7c2fa8) thrown at [/build/buildd/openjdk-8-8u40~b09/src/hotspot/src/share/vm/prims/jvm.cpp, line 1288]
+Event: 1.918 Thread 0x00007fea6000a000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000ec287248) thrown at [/build/buildd/openjdk-8-8u40~b09/src/hotspot/src/share/vm/prims/jvm.cpp, line 1288]
+
+Events (10 events):
+Event: 1.899 loading class com/android/dex/Dex$1 done
+Event: 2.062 Executing VM operation: ParallelGCFailedAllocation
+Event: 2.102 Executing VM operation: ParallelGCFailedAllocation done
+Event: 2.617 Executing VM operation: ParallelGCFailedAllocation
+Event: 2.712 Executing VM operation: ParallelGCFailedAllocation done
+Event: 3.426 loading class java/util/Collections$EmptyIterator
+Event: 3.452 loading class java/util/Collections$EmptyIterator done
+Event: 3.876 Thread 0x00007fea6000a000 DEOPT PACKING pc=0x00007fea50ad63b9 sp=0x00007fea66cb0560
+Event: 3.880 Thread 0x00007fea6000a000 DEOPT UNPACKING pc=0x00007fea50602373 sp=0x00007fea66cb0300 mode 0
+Event: 4.248 Executing VM operation: ParallelGCFailedAllocation
+
+
+Dynamic libraries:
+00400000-00401000 r-xp 00000000 fc:01 1051754                            /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
+00600000-00601000 r--p 00000000 fc:01 1051754                            /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
+00601000-00602000 rw-p 00001000 fc:01 1051754                            /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
+00ae7000-00b08000 rw-p 00000000 00:00 0                                  [heap]
+c0000000-c2800000 rw-p 00000000 00:00 0 
+c2800000-eab00000 ---p 00000000 00:00 0 
+eab00000-eec00000 rw-p 00000000 00:00 0 
+f3a00000-100000000 ---p 00000000 00:00 0 
+100000000-1000c0000 rw-p 00000000 00:00 0 
+1000c0000-140000000 ---p 00000000 00:00 0 
+7fea10000000-7fea10021000 rw-p 00000000 00:00 0 
+7fea10021000-7fea14000000 ---p 00000000 00:00 0 
+7fea14000000-7fea14021000 rw-p 00000000 00:00 0 
+7fea14021000-7fea18000000 ---p 00000000 00:00 0 
+7fea18000000-7fea187dd000 rw-p 00000000 00:00 0 
+7fea187dd000-7fea1c000000 ---p 00000000 00:00 0 
+7fea1c000000-7fea1c4b5000 rw-p 00000000 00:00 0 
+7fea1c4b5000-7fea20000000 ---p 00000000 00:00 0 
+7fea20000000-7fea20021000 rw-p 00000000 00:00 0 
+7fea20021000-7fea24000000 ---p 00000000 00:00 0 
+7fea24000000-7fea246c8000 rw-p 00000000 00:00 0 
+7fea246c8000-7fea28000000 ---p 00000000 00:00 0 
+7fea28000000-7fea28021000 rw-p 00000000 00:00 0 
+7fea28021000-7fea2c000000 ---p 00000000 00:00 0 
+7fea2c000000-7fea2c021000 rw-p 00000000 00:00 0 
+7fea2c021000-7fea30000000 ---p 00000000 00:00 0 
+7fea30000000-7fea30021000 rw-p 00000000 00:00 0 
+7fea30021000-7fea34000000 ---p 00000000 00:00 0 
+7fea34000000-7fea34021000 rw-p 00000000 00:00 0 
+7fea34021000-7fea38000000 ---p 00000000 00:00 0 
+7fea38000000-7fea38021000 rw-p 00000000 00:00 0 
+7fea38021000-7fea3c000000 ---p 00000000 00:00 0 
+7fea40000000-7fea40021000 rw-p 00000000 00:00 0 
+7fea40021000-7fea44000000 ---p 00000000 00:00 0 
+7fea46f10000-7fea46f11000 ---p 00000000 00:00 0 
+7fea46f11000-7fea47011000 rw-p 00000000 00:00 0                          [stack:17244]
+7fea47011000-7fea47014000 ---p 00000000 00:00 0 
+7fea47014000-7fea47112000 rw-p 00000000 00:00 0                          [stack:17243]
+7fea47112000-7fea47115000 ---p 00000000 00:00 0 
+7fea47115000-7fea47213000 rw-p 00000000 00:00 0                          [stack:17242]
+7fea47213000-7fea47216000 ---p 00000000 00:00 0 
+7fea47216000-7fea47314000 rw-p 00000000 00:00 0                          [stack:17241]
+7fea47314000-7fea47317000 ---p 00000000 00:00 0 
+7fea47317000-7fea47415000 rw-p 00000000 00:00 0                          [stack:17240]
+7fea47415000-7fea47418000 ---p 00000000 00:00 0 
+7fea47418000-7fea47516000 rw-p 00000000 00:00 0                          [stack:17239]
+7fea47516000-7fea47bfc000 r--p 00000000 fc:01 6429684                    /usr/lib/locale/locale-archive
+7fea47bfc000-7fea47bff000 ---p 00000000 00:00 0 
+7fea47bff000-7fea47cfd000 rw-p 00000000 00:00 0                          [stack:17238]
+7fea47cfd000-7fea47d00000 ---p 00000000 00:00 0 
+7fea47d00000-7fea47dfe000 rw-p 00000000 00:00 0                          [stack:17237]
+7fea47dfe000-7fea47dff000 ---p 00000000 00:00 0 
+7fea47dff000-7fea48000000 rw-p 00000000 00:00 0                          [stack:17236]
+7fea48000000-7fea48021000 rw-p 00000000 00:00 0 
+7fea48021000-7fea4c000000 ---p 00000000 00:00 0 
+7fea4c0c5000-7fea4ced3000 rw-p 00000000 00:00 0 
+7fea4ced3000-7fea4d0a0000 r--s 03bc6000 fc:01 1051806                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar
+7fea4d0a0000-7fea4d720000 rw-p 00000000 00:00 0 
+7fea4d720000-7fea4d8a0000 ---p 00000000 00:00 0 
+7fea4d8a0000-7fea4faa0000 rw-p 00000000 00:00 0 
+7fea4faa0000-7fea4faa1000 ---p 00000000 00:00 0 
+7fea4faa1000-7fea4fba1000 rw-p 00000000 00:00 0                          [stack:17235]
+7fea4fba1000-7fea4fba2000 ---p 00000000 00:00 0 
+7fea4fba2000-7fea4fca2000 rw-p 00000000 00:00 0                          [stack:17234]
+7fea4fca2000-7fea4fca3000 ---p 00000000 00:00 0 
+7fea4fca3000-7fea4fda3000 rw-p 00000000 00:00 0                          [stack:17233]
+7fea4fda3000-7fea4fda4000 ---p 00000000 00:00 0 
+7fea4fda4000-7fea4feb8000 rw-p 00000000 00:00 0                          [stack:17232]
+7fea4feb8000-7fea4fffa000 ---p 00000000 00:00 0 
+7fea4fffa000-7fea5000e000 rw-p 00000000 00:00 0 
+7fea5000e000-7fea5014f000 ---p 00000000 00:00 0 
+7fea5014f000-7fea50170000 rw-p 00000000 00:00 0 
+7fea50170000-7fea501fa000 ---p 00000000 00:00 0 
+7fea501fa000-7fea50211000 rw-p 00000000 00:00 0 
+7fea50211000-7fea505bb000 ---p 00000000 00:00 0 
+7fea505bb000-7fea50b0b000 rwxp 00000000 00:00 0 
+7fea50b0b000-7fea5f5bb000 ---p 00000000 00:00 0 
+7fea5f5bb000-7fea5f5c3000 r-xp 00000000 fc:01 1051835                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libzip.so
+7fea5f5c3000-7fea5f7c2000 ---p 00008000 fc:01 1051835                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libzip.so
+7fea5f7c2000-7fea5f7c3000 r--p 00007000 fc:01 1051835                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libzip.so
+7fea5f7c3000-7fea5f7c4000 rw-p 00008000 fc:01 1051835                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libzip.so
+7fea5f7c4000-7fea5f7cf000 r-xp 00000000 fc:01 2359761                    /lib/x86_64-linux-gnu/libnss_files-2.19.so
+7fea5f7cf000-7fea5f9ce000 ---p 0000b000 fc:01 2359761                    /lib/x86_64-linux-gnu/libnss_files-2.19.so
+7fea5f9ce000-7fea5f9cf000 r--p 0000a000 fc:01 2359761                    /lib/x86_64-linux-gnu/libnss_files-2.19.so
+7fea5f9cf000-7fea5f9d0000 rw-p 0000b000 fc:01 2359761                    /lib/x86_64-linux-gnu/libnss_files-2.19.so
+7fea5f9d0000-7fea5f9db000 r-xp 00000000 fc:01 2359763                    /lib/x86_64-linux-gnu/libnss_nis-2.19.so
+7fea5f9db000-7fea5fbda000 ---p 0000b000 fc:01 2359763                    /lib/x86_64-linux-gnu/libnss_nis-2.19.so
+7fea5fbda000-7fea5fbdb000 r--p 0000a000 fc:01 2359763                    /lib/x86_64-linux-gnu/libnss_nis-2.19.so
+7fea5fbdb000-7fea5fbdc000 rw-p 0000b000 fc:01 2359763                    /lib/x86_64-linux-gnu/libnss_nis-2.19.so
+7fea5fbdc000-7fea5fbf3000 r-xp 00000000 fc:01 2359747                    /lib/x86_64-linux-gnu/libnsl-2.19.so
+7fea5fbf3000-7fea5fdf2000 ---p 00017000 fc:01 2359747                    /lib/x86_64-linux-gnu/libnsl-2.19.so
+7fea5fdf2000-7fea5fdf3000 r--p 00016000 fc:01 2359747                    /lib/x86_64-linux-gnu/libnsl-2.19.so
+7fea5fdf3000-7fea5fdf4000 rw-p 00017000 fc:01 2359747                    /lib/x86_64-linux-gnu/libnsl-2.19.so
+7fea5fdf4000-7fea5fdf6000 rw-p 00000000 00:00 0 
+7fea5fdf6000-7fea5fdff000 r-xp 00000000 fc:01 2359748                    /lib/x86_64-linux-gnu/libnss_compat-2.19.so
+7fea5fdff000-7fea5fffe000 ---p 00009000 fc:01 2359748                    /lib/x86_64-linux-gnu/libnss_compat-2.19.so
+7fea5fffe000-7fea5ffff000 r--p 00008000 fc:01 2359748                    /lib/x86_64-linux-gnu/libnss_compat-2.19.so
+7fea5ffff000-7fea60000000 rw-p 00009000 fc:01 2359748                    /lib/x86_64-linux-gnu/libnss_compat-2.19.so
+7fea60000000-7fea6042d000 rw-p 00000000 00:00 0 
+7fea6042d000-7fea64000000 ---p 00000000 00:00 0 
+7fea64010000-7fea64014000 r--s 00093000 fc:01 1051785                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jsse.jar
+7fea64014000-7fea64023000 r--s 000dd000 fc:01 6302203                    /home/david/Android/Sdk/build-tools/21.1.2/lib/dx.jar
+7fea64023000-7fea64026000 r--s 0000f000 fc:01 1051814                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/icedtea-sound.jar
+7fea64026000-7fea64029000 r--s 00037000 fc:01 1051815                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/sunpkcs11.jar
+7fea64029000-7fea64033000 r--s 00116000 fc:01 1051816                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/localedata.jar
+7fea64033000-7fea6404c000 r--s 001c2000 fc:01 1051822                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/nashorn.jar
+7fea6404c000-7fea64052000 r--s 0003a000 fc:01 1051817                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/sunjce_provider.jar
+7fea64052000-7fea6406e000 r--s 00393000 fc:01 1051821                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/cldrdata.jar
+7fea6406e000-7fea640bb000 rw-p 00000000 00:00 0 
+7fea640bb000-7fea640e8000 r-xp 00000000 fc:01 1051830                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libjava.so
+7fea640e8000-7fea642e8000 ---p 0002d000 fc:01 1051830                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libjava.so
+7fea642e8000-7fea642e9000 r--p 0002d000 fc:01 1051830                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libjava.so
+7fea642e9000-7fea642eb000 rw-p 0002e000 fc:01 1051830                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libjava.so
+7fea642eb000-7fea642fc000 r-xp 00000000 fc:01 1051852                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libverify.so
+7fea642fc000-7fea644fb000 ---p 00011000 fc:01 1051852                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libverify.so
+7fea644fb000-7fea644fd000 r--p 00010000 fc:01 1051852                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libverify.so
+7fea644fd000-7fea644fe000 rw-p 00012000 fc:01 1051852                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libverify.so
+7fea644fe000-7fea64505000 r-xp 00000000 fc:01 2359764                    /lib/x86_64-linux-gnu/librt-2.19.so
+7fea64505000-7fea64704000 ---p 00007000 fc:01 2359764                    /lib/x86_64-linux-gnu/librt-2.19.so
+7fea64704000-7fea64705000 r--p 00006000 fc:01 2359764                    /lib/x86_64-linux-gnu/librt-2.19.so
+7fea64705000-7fea64706000 rw-p 00007000 fc:01 2359764                    /lib/x86_64-linux-gnu/librt-2.19.so
+7fea64706000-7fea6471c000 r-xp 00000000 fc:01 2363284                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fea6471c000-7fea6491b000 ---p 00016000 fc:01 2363284                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fea6491b000-7fea6491c000 r--p 00015000 fc:01 2363284                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fea6491c000-7fea6491d000 rw-p 00016000 fc:01 2363284                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fea6491d000-7fea64a22000 r-xp 00000000 fc:01 2359743                    /lib/x86_64-linux-gnu/libm-2.19.so
+7fea64a22000-7fea64c21000 ---p 00105000 fc:01 2359743                    /lib/x86_64-linux-gnu/libm-2.19.so
+7fea64c21000-7fea64c22000 r--p 00104000 fc:01 2359743                    /lib/x86_64-linux-gnu/libm-2.19.so
+7fea64c22000-7fea64c23000 rw-p 00105000 fc:01 2359743                    /lib/x86_64-linux-gnu/libm-2.19.so
+7fea64c23000-7fea64d13000 r-xp 00000000 fc:01 6426966                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.20
+7fea64d13000-7fea64f13000 ---p 000f0000 fc:01 6426966                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.20
+7fea64f13000-7fea64f1b000 r--p 000f0000 fc:01 6426966                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.20
+7fea64f1b000-7fea64f1d000 rw-p 000f8000 fc:01 6426966                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.20
+7fea64f1d000-7fea64f32000 rw-p 00000000 00:00 0 
+7fea64f32000-7fea65baf000 r-xp 00000000 fc:01 1051846                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/server/libjvm.so
+7fea65baf000-7fea65dae000 ---p 00c7d000 fc:01 1051846                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/server/libjvm.so
+7fea65dae000-7fea65e51000 r--p 00c7c000 fc:01 1051846                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/server/libjvm.so
+7fea65e51000-7fea65e7a000 rw-p 00d1f000 fc:01 1051846                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/server/libjvm.so
+7fea65e7a000-7fea65ea9000 rw-p 00000000 00:00 0 
+7fea65ea9000-7fea65ec2000 r-xp 00000000 fc:01 2359751                    /lib/x86_64-linux-gnu/libpthread-2.19.so
+7fea65ec2000-7fea660c1000 ---p 00019000 fc:01 2359751                    /lib/x86_64-linux-gnu/libpthread-2.19.so
+7fea660c1000-7fea660c2000 r--p 00018000 fc:01 2359751                    /lib/x86_64-linux-gnu/libpthread-2.19.so
+7fea660c2000-7fea660c3000 rw-p 00019000 fc:01 2359751                    /lib/x86_64-linux-gnu/libpthread-2.19.so
+7fea660c3000-7fea660c7000 rw-p 00000000 00:00 0 
+7fea660c7000-7fea660ca000 r-xp 00000000 fc:01 2359750                    /lib/x86_64-linux-gnu/libdl-2.19.so
+7fea660ca000-7fea662c9000 ---p 00003000 fc:01 2359750                    /lib/x86_64-linux-gnu/libdl-2.19.so
+7fea662c9000-7fea662ca000 r--p 00002000 fc:01 2359750                    /lib/x86_64-linux-gnu/libdl-2.19.so
+7fea662ca000-7fea662cb000 rw-p 00003000 fc:01 2359750                    /lib/x86_64-linux-gnu/libdl-2.19.so
+7fea662cb000-7fea662e3000 r-xp 00000000 fc:01 2363470                    /lib/x86_64-linux-gnu/libz.so.1.2.8
+7fea662e3000-7fea664e2000 ---p 00018000 fc:01 2363470                    /lib/x86_64-linux-gnu/libz.so.1.2.8
+7fea664e2000-7fea664e3000 r--p 00017000 fc:01 2363470                    /lib/x86_64-linux-gnu/libz.so.1.2.8
+7fea664e3000-7fea664e4000 rw-p 00018000 fc:01 2363470                    /lib/x86_64-linux-gnu/libz.so.1.2.8
+7fea664e4000-7fea6669e000 r-xp 00000000 fc:01 2359762                    /lib/x86_64-linux-gnu/libc-2.19.so
+7fea6669e000-7fea6689d000 ---p 001ba000 fc:01 2359762                    /lib/x86_64-linux-gnu/libc-2.19.so
+7fea6689d000-7fea668a1000 r--p 001b9000 fc:01 2359762                    /lib/x86_64-linux-gnu/libc-2.19.so
+7fea668a1000-7fea668a3000 rw-p 001bd000 fc:01 2359762                    /lib/x86_64-linux-gnu/libc-2.19.so
+7fea668a3000-7fea668a8000 rw-p 00000000 00:00 0 
+7fea668a8000-7fea668b6000 r-xp 00000000 fc:01 1051840                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/jli/libjli.so
+7fea668b6000-7fea66ab5000 ---p 0000e000 fc:01 1051840                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/jli/libjli.so
+7fea66ab5000-7fea66ab6000 r--p 0000d000 fc:01 1051840                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/jli/libjli.so
+7fea66ab6000-7fea66ab7000 rw-p 0000e000 fc:01 1051840                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/jli/libjli.so
+7fea66ab7000-7fea66ada000 r-xp 00000000 fc:01 2359757                    /lib/x86_64-linux-gnu/ld-2.19.so
+7fea66adb000-7fea66adc000 rw-p 00000000 00:00 0 
+7fea66adc000-7fea66ade000 r--s 00006000 fc:01 6816208                    /usr/share/java/java-atk-wrapper.jar
+7fea66ade000-7fea66ae0000 r--s 00001000 fc:01 1051819                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/dnsns.jar
+7fea66ae0000-7fea66bb1000 rw-p 00000000 00:00 0 
+7fea66bb1000-7fea66bb4000 ---p 00000000 00:00 0 
+7fea66bb4000-7fea66cb7000 rw-p 00000000 00:00 0                          [stack:17231]
+7fea66cb7000-7fea66cb8000 r--s 00010000 fc:01 1051820                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/zipfs.jar
+7fea66cb8000-7fea66cb9000 r--s 00008000 fc:01 1051818                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/sunec.jar
+7fea66cb9000-7fea66ccd000 rw-p 00000000 00:00 0 
+7fea66ccd000-7fea66cd5000 rw-s 00000000 fc:01 5639277                    /tmp/hsperfdata_david/17223
+7fea66cd5000-7fea66cd6000 rw-p 00000000 00:00 0 
+7fea66cd6000-7fea66cd7000 ---p 00000000 00:00 0 
+7fea66cd7000-7fea66cd9000 rw-p 00000000 00:00 0 
+7fea66cd9000-7fea66cda000 r--p 00022000 fc:01 2359757                    /lib/x86_64-linux-gnu/ld-2.19.so
+7fea66cda000-7fea66cdb000 rw-p 00023000 fc:01 2359757                    /lib/x86_64-linux-gnu/ld-2.19.so
+7fea66cdb000-7fea66cdc000 rw-p 00000000 00:00 0 
+7fff3eff7000-7fff3f018000 rw-p 00000000 00:00 0                          [stack]
+7fff3f1e1000-7fff3f1e3000 r-xp 00000000 00:00 0                          [vdso]
+7fff3f1e3000-7fff3f1e5000 r--p 00000000 00:00 0                          [vvar]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+jvm_args: -Xmx1024M 
+java_command: /home/david/Android/Sdk/build-tools/21.1.2/lib/dx.jar --dex --no-optimize --output /home/david/AndroidStudioProjects/accelerometer/app/build/intermediates/dex/debug --input-list=/home/david/AndroidStudioProjects/accelerometer/app/build/intermediates/tmp/dex/debug/inputList.txt
+java_class_path (initial): /home/david/Android/Sdk/build-tools/21.1.2/lib/dx.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+CLASSPATH=/home/david/android-studio/bin/../lib/bootstrap.jar:/home/david/android-studio/bin/../lib/extensions.jar:/home/david/android-studio/bin/../lib/util.jar:/home/david/android-studio/bin/../lib/jdom.jar:/home/david/android-studio/bin/../lib/log4j.jar:/home/david/android-studio/bin/../lib/trove4j.jar:/home/david/android-studio/bin/../lib/jna.jar:/usr/lib/jvm/java-8-openjdk-amd64/lib/tools.jar
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+LD_LIBRARY_PATH=/home/david/android-studio/bin:
+SHELL=/bin/bash
+DISPLAY=:0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0xa83200], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0xa83200], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0x8cd920], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0x8cd920], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0x8cd920], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0x8cd920], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR1: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGUSR2: [libjvm.so+0x8cd7d0], sa_mask[0]=00100000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: [libjvm.so+0x8cd970], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGINT: [libjvm.so+0x8cd970], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGTERM: [libjvm.so+0x8cd970], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGQUIT: [libjvm.so+0x8cd970], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+
+
+---------------  S Y S T E M  ---------------
+
+OS:DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=14.10
+DISTRIB_CODENAME=utopic
+DISTRIB_DESCRIPTION="Ubuntu 14.10"
+
+uname:Linux 3.16.0-34-generic #45-Ubuntu SMP Mon Mar 23 17:21:27 UTC 2015 x86_64
+libc:glibc 2.19 NPTL 2.19 
+rlimit: STACK 8192k, CORE 0k, NPROC 14917, NOFILE 4096, AS infinity
+load average:24.34 7.76 3.73
+
+/proc/meminfo:
+MemTotal:        3923752 kB
+MemFree:           89028 kB
+MemAvailable:      34444 kB
+Buffers:             336 kB
+Cached:           369068 kB
+SwapCached:         5728 kB
+Active:          2519064 kB
+Inactive:        1092128 kB
+Active(anon):    2509436 kB
+Inactive(anon):  1080252 kB
+Active(file):       9628 kB
+Inactive(file):    11876 kB
+Unevictable:          48 kB
+Mlocked:              48 kB
+SwapTotal:       4067324 kB
+SwapFree:              0 kB
+Dirty:                28 kB
+Writeback:             0 kB
+AnonPages:       3236488 kB
+Mapped:            17256 kB
+Shmem:            347420 kB
+Slab:              85164 kB
+SReclaimable:      38272 kB
+SUnreclaim:        46892 kB
+KernelStack:       20944 kB
+PageTables:        62384 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     6029200 kB
+Committed_AS:   16053360 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:      550244 kB
+VmallocChunk:   34359090812 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:    360448 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:       75516 kB
+DirectMap2M:     3995648 kB
+
+
+CPU:total 4 (2 cores per cpu, 2 threads per core) family 6 model 58 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, aes, clmul, erms, ht, tsc, tscinvbit, tscinv
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i5-3317U CPU @ 1.70GHz
+stepping	: 9
+microcode	: 0x15
+cpu MHz		: 2399.988
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 2
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms
+bogomips	: 3392.09
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i5-3317U CPU @ 1.70GHz
+stepping	: 9
+microcode	: 0x15
+cpu MHz		: 2399.988
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 2
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms
+bogomips	: 3392.09
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i5-3317U CPU @ 1.70GHz
+stepping	: 9
+microcode	: 0x15
+cpu MHz		: 2399.988
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 2
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms
+bogomips	: 3392.09
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i5-3317U CPU @ 1.70GHz
+stepping	: 9
+microcode	: 0x15
+cpu MHz		: 2399.988
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 2
+apicid		: 3
+initial apicid	: 3
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms
+bogomips	: 3392.09
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 3923752k(88656k free), swap 4067324k(0k free)
+
+vm_info: OpenJDK 64-Bit Server VM (25.40-b13) for linux-amd64 JRE (1.8.0_40-internal-b09), built on Oct 14 2014 17:09:13 by "buildd" with gcc 4.9.1
+
+time: Sat May  2 23:01:54 2015
+elapsed time: 43 seconds (0d 0h 0m 43s)
+
